@@ -94,6 +94,10 @@ class Trader(Client):
         balance = float(self.get_asset_balance(asset)['free'])
         return balance
 
+    def round_down_safely(self, x, precision):
+        # rounds down safely by avoiding floating point errors
+         return round(math.floor(x * (10**precision)) * 10**-precision, precision)
+
     def place_market_order(self, base_asset="BTC", quote_asset="USDT", action="sell", percentage=100):
         # Get base asset and quote asset
         symbol = base_asset + quote_asset
@@ -107,12 +111,18 @@ class Trader(Client):
             asset = quote_asset
         balance = self.get_balance(asset)
 
-        quantity = round(math.floor(balance * percentage / 100 * (10**precision)) * 10**-precision, precision)
+        if action == 'sell':
+            quantity = self.round_down_safely(balance * percentage / 100, precision)
+        elif action == 'buy':
+            last_price = float(self.get_symbol_ticker(symbol=symbol)['price'])
+            print("last price", last_price)
+            quantity = self.round_down_safely(balance * percentage / 100 / last_price, precision)
+
         print("Balance = {}, Percentage = {}, Precision = {}, Quantity = {}".format(balance, percentage, precision, quantity))
         assert quantity > 0.0, "Balance of {} {} is too low to execute trade.".format(balance, asset)
 
         # Execute trade
-        if LIVE_TRADING == True:
+        if LIVE_TRADING:
             if action == 'sell':
                 response = self.place_market_sell(symbol, quantity)
             elif action == 'buy':
@@ -135,12 +145,12 @@ if __name__ == '__main__':
 
     # Examples
     print('*'*40)
-    resp1 = t.place_market_order(base_asset='LTC', quote_asset='ETH', percentage=100, action='buy')
+    resp1 = t.place_market_order(base_asset='ETH', quote_asset='BTC', percentage=100, action='sell')
     print("Order Filled?", resp1)
     print('*'*40)
 
     print('*'*40)
-    resp2 = t.place_market_order(base_asset='LTC', quote_asset='ETH', percentage=100, action='sell')
+    resp2 = t.place_market_order(base_asset='ETH', quote_asset='BTC', percentage=100, action='buy')
     print("Order Filled?", resp2)
     print('*'*40)
 

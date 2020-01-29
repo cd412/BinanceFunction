@@ -6,15 +6,16 @@ pip install python-binance==0.7.4
 
 # Example output
 ****************************************
-Balance = 0.05293446, Percentage = 100, Precision = 2, Quantity = 0.05
-Placing buy order for 0.05 of LTCETH
-{'symbol': 'LTCETH', 'orderId': 97527599, 'orderListId': -1, 'clientOrderId': 'FH4iMn8HOPDJhDVIIER5Vk', 'transactTime': 1580246332717, 'price': '0.00000000', 'origQty': '0.05000000', 'executedQty': '0.05000000', 'cummulativeQuoteQty': '0.01716750', 'status': 'FILLED', 'timeInForce': 'GTC', 'type': 'MARKET', 'side': 'BUY', 'fills': [{'price': '0.34335000', 'qty': '0.05000000', 'commission': '0.00005000', 'commissionAsset': 'LTC', 'tradeId': 7176456}]}
+Balance = 0.07970817, Percentage = 100, Precision = 3, Quantity = 0.079
+Placing sell order for 0.079 of ETHBTC
+{'symbol': 'ETHBTC', 'orderId': 594496891, 'orderListId': -1, 'clientOrderId': 'EsH6AXFY3n52g3VWcoI2l4', 'transactTime': 1580305356102, 'price': '0.00000000', 'origQty': '0.07900000', 'executedQty': '0.07900000', 'cummulativeQuoteQty': '0.00149317', 'status': 'FILLED', 'timeInForce': 'GTC', 'type': 'MARKET', 'side': 'SELL', 'fills': [{'price': '0.01890100', 'qty': '0.07900000', 'commission': '0.00000149', 'commissionAsset': 'BTC', 'tradeId': 159481178}]}
 Order Filled? True
 ****************************************
 ****************************************
-Balance = 0.05985, Percentage = 100, Precision = 2, Quantity = 0.05
-Placing sell order for 0.05 of LTCETH
-{'symbol': 'LTCETH', 'orderId': 97527601, 'orderListId': -1, 'clientOrderId': 'Kv2x829CQO2tLzAAKyWuU9', 'transactTime': 1580246333220, 'price': '0.00000000', 'origQty': '0.05000000', 'executedQty': '0.05000000', 'cummulativeQuoteQty': '0.01715600', 'status': 'FILLED', 'timeInForce': 'GTC', 'type': 'MARKET', 'side': 'SELL', 'fills': [{'price': '0.34312000', 'qty': '0.05000000', 'commission': '0.00001716', 'commissionAsset': 'ETH', 'tradeId': 7176457}]}
+last price 0.018901
+Balance = 0.00149274, Percentage = 100, Precision = 3, Quantity = 0.078
+Placing buy order for 0.078 of ETHBTC
+{'symbol': 'ETHBTC', 'orderId': 594496896, 'orderListId': -1, 'clientOrderId': 'BiuXw30vsnJXLNYqVv3OiA', 'transactTime': 1580305357180, 'price': '0.00000000', 'origQty': '0.07800000', 'executedQty': '0.07800000', 'cummulativeQuoteQty': '0.00147470', 'status': 'FILLED', 'timeInForce': 'GTC', 'type': 'MARKET', 'side': 'BUY', 'fills': [{'price': '0.01890300', 'qty': '0.01000000', 'commission': '0.00001000', 'commissionAsset': 'ETH', 'tradeId': 159481180}, {'price': '0.01890700', 'qty': '0.06800000', 'commission': '0.00006800', 'commissionAsset': 'ETH', 'tradeId': 159481181}]}
 Order Filled? True
 ****************************************
 
